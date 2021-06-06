@@ -8,7 +8,7 @@ var expect = chai.expect;
 var should = chai.should();
 
 var http = require('http');
-const { UserModel } = require('../../MongooseDB/model/UserModel');
+const { UserModel } = require('../model/UserModel.js');
 chai.use(chaiHttp);
 
 if (!global.Promise) {
