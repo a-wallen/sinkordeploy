@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r\n\r\n    .navbar-custom {\r\n      background-color: var(--primary-color);\r\n    }\r\n    /* Modify brand and text color */\r\n\r\n    .navbar-custom .navbar-brand,\r\n    .navbar-custom .navbar-text,\r\n    .navbar-custom .nav-link,\r\n    .navbar-custom .navbar-nav {\r\n      color: var(--secondary-light-color);\r\n    }\r\n  </style>\r\n\r\n  <link\r\n    href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"\r\n    rel=\"stylesheet\"\r\n    integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\"\r\n    crossorigin=\"anonymous\"\r\n  />\r\n</head>\r\n\r\n<body>\r\n  <nav class=\"navbar navbar-custom\">\r\n    <div class=\"container-fluid\" style=\"color: var(--primary-color)\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\" style=\"font-size: 250%\" href=\"/#\"\r\n          >SINK OR SWIM</a\r\n        >\r\n      </div>\r\n      <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" style=\"font-size: 200%\" href=\"#\">Home</a>\r\n          </li>\r\n          <li class=\"nav-item dropdown\">\r\n            <a\r\n              class=\"nav-link dropdown-toggle\"\r\n              style=\"font-size: 200%\"\r\n              href=\"#\"\r\n              id=\"navbardrop\"\r\n              data-toggle=\"dropdown\"\r\n            >\r\n              Archives\r\n            </a>\r\n            <!-- FOR SOME REASON THE DROPDOWN DOESN'T FUCKING WORK???????? time to give up on that shit -->\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Day</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Month</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Year</a>\r\n            </div>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li>\r\n            <a\r\n              href=\"#\"\r\n              style=\"color: var(--secondary-light-color); font-size: 200%\"\r\n              >Login</a\r\n            >\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <router-outlet></router-outlet>\r\n</body>\r\n"
+module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r\n\r\n    .navbar-custom {\r\n      background-color: var(--primary-color);\r\n    }\r\n    /* Modify brand and text color */\r\n\r\n    .navbar-custom .navbar-brand,\r\n    .navbar-custom .navbar-text,\r\n    .navbar-custom .nav-link,\r\n    .navbar-custom .navbar-nav {\r\n      color: var(--secondary-light-color);\r\n    }\r\n  </style>\r\n\r\n  <link\r\n    href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"\r\n    rel=\"stylesheet\"\r\n    integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\"\r\n    crossorigin=\"anonymous\"\r\n  />\r\n</head>\r\n\r\n<body>\r\n  <nav class=\"navbar navbar-custom\">\r\n    <div class=\"container-fluid\" style=\"color: var(--primary-color)\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\" style=\"font-size: 250%\" href=\"/#\"\r\n          >SINK OR SWIM : Deploy</a\r\n        >\r\n      </div>\r\n      <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" style=\"font-size: 200%\" href=\"#\">Home</a>\r\n          </li>\r\n          <li class=\"nav-item dropdown\">\r\n            <a\r\n              class=\"nav-link dropdown-toggle\"\r\n              style=\"font-size: 200%\"\r\n              href=\"#\"\r\n              id=\"navbardrop\"\r\n              data-toggle=\"dropdown\"\r\n            >\r\n              Archives\r\n            </a>\r\n            <!-- FOR SOME REASON THE DROPDOWN DOESN'T FUCKING WORK???????? time to give up on that shit -->\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Day</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Month</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Year</a>\r\n            </div>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li>\r\n            <a\r\n              href=\"#\"\r\n              style=\"color: var(--secondary-light-color); font-size: 200%\"\r\n              >Signed in User:\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <router-outlet></router-outlet>\r\n</body>\r\n"
 
 /***/ }),
 
@@ -37,6 +37,7 @@ module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_user_service__ = __webpack_require__("./src/app/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,21 +48,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'app works!';
+    function AppComponent(user$) {
+        this.user$ = user$;
+        this.title = "app works!";
     }
+    AppComponent.prototype.testMethod = function () {
+        console.log("calls test method");
+        this.user$.getAuthUser();
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Component */])({
-            selector: 'app-root',
+            selector: "app-root",
             template: __webpack_require__("./src/app/app.component.html"),
-            styles: [__webpack_require__("./src/app/app.component.css")]
+            styles: [__webpack_require__("./src/app/app.component.css")],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_app_user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_app_user_service__["a" /* UserService */]) === 'function' && _a) || Object])
     ], AppComponent);
     return AppComponent;
+    var _a;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/app.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/app.component.js.map
 
 /***/ }),
 
@@ -143,7 +151,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/app.module.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/app.module.js.map
 
 /***/ }),
 
@@ -171,7 +179,7 @@ var routes = [
     { path: "users/:userId", component: __WEBPACK_IMPORTED_MODULE_3__user_detail_user_detail_component__["a" /* UserDetailComponent */] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(routes);
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/app.routing.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/app.routing.js.map
 
 /***/ }),
 
@@ -201,12 +209,12 @@ var CommentService = (function () {
     }
     CommentService.prototype.fetchMemeComments = function (memeId) {
         return this.http
-            .get("/app/memes/comment/" + memeId)
+            .get("http://localhost:8080/app/memes/comment/" + memeId)
             .map(function (response) { return response.json(); });
     };
     CommentService.prototype.fetchCommentDetails = function (commentId) {
         return this.http
-            .get("/app/comments/" + commentId)
+            .get("http://localhost:8080/app/comments/" + commentId)
             .map(function (response) { return response.json(); });
     };
     CommentService = __decorate([
@@ -216,7 +224,7 @@ var CommentService = (function () {
     return CommentService;
     var _a;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/comment.service.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/comment.service.js.map
 
 /***/ }),
 
@@ -293,7 +301,7 @@ var Comment1Component = (function () {
     return Comment1Component;
     var _a, _b;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/comment1.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/comment1.component.js.map
 
 /***/ }),
 
@@ -369,7 +377,7 @@ var FeedComponent = (function () {
     return FeedComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/feed.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/feed.component.js.map
 
 /***/ }),
 
@@ -383,7 +391,7 @@ module.exports = "@import url('https://fonts.googleapis.com/css?family=Bebas+Neu
 /***/ "./src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body style=\"background-color: #666666;\">\r\n  <div class=\"limiter\">\r\n    <div class=\"container-login100\">\r\n      <div class=\"wrap-login100\">\r\n        <form class=\"login100-form validate-form\">\r\n          <span class=\"login100-form-title p-b-43\">\r\n            Login to continue\r\n          </span>\r\n          <div class=\"wrap-input100 validate-input\" data-validate=\"Valid email is required: ex@abc.xyz\">\r\n            <input class=\"input100\" type=\"text\" name=\"email\">\r\n            <span class=\"focus-input100\"></span>\r\n            <span class=\"label-input100\">Email</span>\r\n          </div>\r\n          <div class=\"wrap-input100 validate-input\" data-validate=\"Password is required\">\r\n            <input class=\"input100\" type=\"password\" name=\"pass\">\r\n            <span class=\"focus-input100\"></span>\r\n            <span class=\"label-input100\">Password</span>\r\n          </div>\r\n          <div class=\"flex-sb-m w-full p-t-3 p-b-32\">\r\n            <div class=\"contact100-form-checkbox\">\r\n              <input class=\"input-checkbox100\" id=\"ckb1\" type=\"checkbox\" name=\"remember-me\">\r\n              <label class=\"label-checkbox100\" for=\"ckb1\">\r\n                Remember me\r\n              </label>\r\n            </div>\r\n            <div>\r\n              <a href=\"#\" class=\"txt1\">\r\n                Forgot Password?\r\n              </a>\r\n            </div>\r\n          </div>\r\n          <div class=\"container-login100-form-btn\">\r\n            <button class=\"login100-form-btn\" routerLink=\"../memes/day/2021-05-02T23:03:18.254+00:00\">\r\n              Login\r\n            </button>\r\n          </div>\r\n          <div class=\"text-center p-t-46 p-b-20\">\r\n            <span class=\"txt2\">\r\n              or sign up using\r\n            </span>\r\n          </div>\r\n          <div class=\"login100-form-social flex-c-m\">\r\n            <a href=\"#\" class=\"login100-form-social-item flex-c-m bg1 m-r-5\">\r\n              <i class=\"fa fa-facebook-f\" aria-hidden=\"true\"></i>\r\n            </a>\r\n            <a href=\"#\" class=\"login100-form-social-item flex-c-m bg2 m-r-5\">\r\n              <i class=\"fa fa-twitter\" aria-hidden=\"true\"></i>\r\n            </a>\r\n          </div>\r\n        </form>\r\n        <div class=\"login100-more\" style=\"background-image: url('https://artsybucket.com/wp-content/uploads/2020/08/1252Ff252F4252Ff252F1f4f2dc1f98ce910b07e81727060c2b8c85b5535_1598417615-416x583.jpg');\">\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n<!-- \r\n  <script type=\"text/javascript\" async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script>\r\n  <script src=\"vendor/jquery/jquery-3.2.1.min.js\"></script>\r\n\r\n  <script src=\"vendor/animsition/js/animsition.min.js\"></script>\r\n\r\n  <script src=\"vendor/bootstrap/js/popper.js\"></script>\r\n  <script src=\"vendor/bootstrap/js/bootstrap.min.js\"></script>\r\n\r\n  <script src=\"vendor/select2/select2.min.js\"></script>\r\n\r\n  <script src=\"vendor/daterangepicker/moment.min.js\"></script>\r\n  <script src=\"vendor/daterangepicker/daterangepicker.js\"></script>\r\n\r\n  <script src=\"vendor/countdowntime/countdowntime.js\"></script>\r\n\r\n  <script src=\"js/main.js\"></script>\r\n\r\n  <script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-23581568-13\"></script>\r\n  <script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag() { dataLayer.push(arguments); }\r\n    gtag('js', new Date());\r\n\r\n    gtag('config', 'UA-23581568-13');\r\n  </script>\r\n  <script defer=\"\" src=\"https://static.cloudflareinsights.com/beacon.min.js\"\r\n    data-cf-beacon=\"{&quot;rayId&quot;:&quot;65469ba35c99f4d4&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2021.5.1&quot;,&quot;si&quot;:10}\"></script> -->\r\n"
+module.exports = "<meta\r\n  name=\"google-signin-client_id\"\r\n  content=\"131963474491-f02cagbubq846imio4ujgpvf1ok38bom.apps.googleusercontent.com\"\r\n/>\r\n<script src=\"https://apis.google.com/js/platform.js\"></script>\r\n\r\n<body style=\"background-color: #666666\">\r\n  <div class=\"limiter\">\r\n    <div class=\"container-login100\">\r\n      <div class=\"wrap-login100\">\r\n        <form class=\"login100-form validate-form\">\r\n          <span class=\"login100-form-title p-b-43\"> Login to continue </span>\r\n          <div\r\n            class=\"wrap-input100 validate-input\"\r\n            data-validate=\"Valid email is required: ex@abc.xyz\"\r\n          >\r\n            <input class=\"input100\" type=\"text\" name=\"email\" />\r\n            <span class=\"focus-input100\"></span>\r\n            <span class=\"label-input100\">Email</span>\r\n          </div>\r\n          <div\r\n            class=\"wrap-input100 validate-input\"\r\n            data-validate=\"Password is required\"\r\n          >\r\n            <input class=\"input100\" type=\"password\" name=\"pass\" />\r\n            <span class=\"focus-input100\"></span>\r\n            <span class=\"label-input100\">Password</span>\r\n          </div>\r\n          <div class=\"flex-sb-m w-full p-t-3 p-b-32\">\r\n            <div class=\"contact100-form-checkbox\">\r\n              <input\r\n                class=\"input-checkbox100\"\r\n                id=\"ckb1\"\r\n                type=\"checkbox\"\r\n                name=\"remember-me\"\r\n              />\r\n              <label class=\"label-checkbox100\" for=\"ckb1\"> Remember me </label>\r\n            </div>\r\n            <div>\r\n              <a href=\"#\" class=\"txt1\"> Forgot Password? </a>\r\n            </div>\r\n          </div>\r\n          <div class=\"container-login100-form-btn\">\r\n            <button\r\n              class=\"login100-form-btn\"\r\n              routerLink=\"../memes/day/2021-05-02T23:03:18.254+00:00\"\r\n            >\r\n              Login\r\n            </button>\r\n          </div>\r\n\r\n          <div class=\"text-center p-t-46 p-b-20\">\r\n            <span class=\"txt2\"> or sign up using </span>\r\n\r\n            <a\r\n              class=\"btn btn lg btn primary\"\r\n              href=\"http://localhost:8080/auth/google\"\r\n              role=\"button\"\r\n              >Google Login</a\r\n            >\r\n          </div>\r\n\r\n          <div class=\"login100-form-social flex-c-m\">\r\n            <a href=\"#\" class=\"login100-form-social-item flex-c-m bg1 m-r-5\">\r\n              <i class=\"fa fa-facebook-f\" aria-hidden=\"true\"></i>\r\n            </a>\r\n            <a href=\"#\" class=\"login100-form-social-item flex-c-m bg2 m-r-5\">\r\n              <i class=\"fa fa-twitter\" aria-hidden=\"true\"></i>\r\n            </a>\r\n          </div>\r\n        </form>\r\n        <div\r\n          class=\"login100-more\"\r\n          style=\"\r\n            background-image: url('https://artsybucket.com/wp-content/uploads/2020/08/1252Ff252F4252Ff252F1f4f2dc1f98ce910b07e81727060c2b8c85b5535_1598417615-416x583.jpg');\r\n          \"\r\n        ></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <!-- \r\n  <script type=\"text/javascript\" async=\"\" src=\"https://www.google-analytics.com/analytics.js\"></script>\r\n  <script src=\"vendor/jquery/jquery-3.2.1.min.js\"></script>\r\n\r\n  <script src=\"vendor/animsition/js/animsition.min.js\"></script>\r\n\r\n  <script src=\"vendor/bootstrap/js/popper.js\"></script>\r\n  <script src=\"vendor/bootstrap/js/bootstrap.min.js\"></script>\r\n\r\n  <script src=\"vendor/select2/select2.min.js\"></script>\r\n\r\n  <script src=\"vendor/daterangepicker/moment.min.js\"></script>\r\n  <script src=\"vendor/daterangepicker/daterangepicker.js\"></script>\r\n\r\n  <script src=\"vendor/countdowntime/countdowntime.js\"></script>\r\n\r\n  <script src=\"js/main.js\"></script>\r\n\r\n  <script async=\"\" src=\"https://www.googletagmanager.com/gtag/js?id=UA-23581568-13\"></script>\r\n  <script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag() { dataLayer.push(arguments); }\r\n    gtag('js', new Date());\r\n\r\n    gtag('config', 'UA-23581568-13');\r\n  </script>\r\n  <script defer=\"\" src=\"https://static.cloudflareinsights.com/beacon.min.js\"\r\n    data-cf-beacon=\"{&quot;rayId&quot;:&quot;65469ba35c99f4d4&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2021.5.1&quot;,&quot;si&quot;:10}\"></script> -->\r\n</body>\r\n"
 
 /***/ }),
 
@@ -418,7 +426,7 @@ var LoginComponent = (function () {
     ], LoginComponent);
     return LoginComponent;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/login.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/login.component.js.map
 
 /***/ }),
 
@@ -509,7 +517,7 @@ var MemeListItemComponent = (function () {
     return MemeListItemComponent;
     var _a, _b, _c, _d, _e;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/meme-list-item.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/meme-list-item.component.js.map
 
 /***/ }),
 
@@ -539,29 +547,29 @@ var MemeService = (function () {
     }
     MemeService.prototype.getListsIndex = function () {
         return (this.http
-            .get("/json/lists.json")
+            .get("http://localhost:8080/json/lists.json")
             .map(function (response) { return response.json(); }));
     };
     MemeService.prototype.getComments = function (memeId) {
         return this.http
-            .get("/app/memes/comment/")
+            .get("http://localhost:8080/app/memes/comment/")
             .map(function (response) { return response.json(); });
     };
     MemeService.prototype.getMemeDetails = function (memeId) {
         return this.http
-            .get("/app/memes/" + memeId)
+            .get("http://localhost:8080/app/memes/" + memeId)
             .map(function (response) { return response.json(); });
     };
     MemeService.prototype.getFeed = function (datetime) {
         return this.http
-            .get("/app/memes/day/" + datetime)
+            .get("http://localhost:8080/app/memes/day/" + datetime)
             .map(function (response) {
             return response.json();
         });
     };
     MemeService.prototype.getUserInfo = function (userId) {
         return this.http
-            .get("/app/users/" + userId)
+            .get("http://localhost:8080/app/users/" + userId)
             .map(function (data) {
             data["userId"];
         });
@@ -577,7 +585,7 @@ var MemeService = (function () {
     };
     MemeService.prototype.getItems = function (index) {
         return (this.http
-            .get("/json/lists/" + index + ".json")
+            .get("http://localhost:8080/json/lists/" + index + ".json")
             .map(function (response) { return response.json(); }));
     };
     MemeService = __decorate([
@@ -587,7 +595,7 @@ var MemeService = (function () {
     return MemeService;
     var _a;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/meme.service.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/meme.service.js.map
 
 /***/ }),
 
@@ -721,7 +729,7 @@ var MemeComponent = (function () {
     return MemeComponent;
     var _a, _b, _c, _d, _e;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/meme.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/meme.component.js.map
 
 /***/ }),
 
@@ -781,7 +789,7 @@ var UserDetailComponent = (function () {
     return UserDetailComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/user-detail.component.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/user-detail.component.js.map
 
 /***/ }),
 
@@ -810,9 +818,14 @@ var UserService = (function () {
         this.http = http;
     }
     UserService.prototype.fetchUser = function (userId) {
-        console.log("/app/users/" + userId);
+        console.log("http://localhost:8080/app/users/" + userId);
         return this.http
-            .get("/app/users/" + userId)
+            .get("http://localhost:8080/app/users/" + userId)
+            .map(function (response) { return response.json(); });
+    };
+    UserService.prototype.getAuthUser = function () {
+        return this.http
+            .get("http://localhost:8080/app/getUserSSO/")
             .map(function (response) { return response.json(); });
     };
     UserService = __decorate([
@@ -822,7 +835,7 @@ var UserService = (function () {
     return UserService;
     var _a;
 }());
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/user.service.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/user.service.js.map
 
 /***/ }),
 
@@ -838,7 +851,7 @@ var UserService = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/environment.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/environment.js.map
 
 /***/ }),
 
@@ -861,7 +874,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_28" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/main.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/main.js.map
 
 /***/ }),
 
@@ -917,7 +930,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* pl
 
 
 
-//# sourceMappingURL=/mnt/c/Users/Stephen Wallen/Documents/MyDev/sinkorswim/angular/src/polyfills.js.map
+//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkordeploy/angular/src/polyfills.js.map
 
 /***/ }),
 

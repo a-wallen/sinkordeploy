@@ -8,22 +8,51 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+exports.__esModule = true;
 exports.App = void 0;
-//import * as path from 'path';
-const express = require("express");
-const logger = require("morgan");
-//import * as mongodb from 'mongodb';
-//import * as url from 'url';
-const bodyParser = require("body-parser");
-const UserModel_1 = require("./model/UserModel");
-const MemeModel_1 = require("./model/MemeModel");
-const CommentModel_1 = require("./model/CommentModel");
-const VoteModel_1 = require("./model/VoteModel");
+var express = require("express");
+var logger = require("morgan");
+var bodyParser = require("body-parser");
+var session = require("express-session");
+var cookieParser = require("cookie-parser");
+var UserModel_1 = require("./model/UserModel");
+var MemeModel_1 = require("./model/MemeModel");
+var CommentModel_1 = require("./model/CommentModel");
+var VoteModel_1 = require("./model/VoteModel");
+var GooglePassport_1 = require("./GooglePassport");
+var passport = require("passport");
 // Creates and configures an ExpressJS web server.
-class App {
+var App = /** @class */ (function () {
     //Run configuration methods on the Express instance.
-    constructor() {
+    function App() {
+        this.googlePassportObj = new GooglePassport_1["default"]();
         this.expressApp = express();
         this.middleware();
         this.routes();
@@ -35,14 +64,27 @@ class App {
         this.Vote = new VoteModel_1.VoteModel();
     }
     // Configure Express middleware.
-    middleware() {
+    App.prototype.middleware = function () {
         this.expressApp.use(logger("dev"));
         this.expressApp.use(bodyParser.json());
         this.expressApp.use(bodyParser.urlencoded({ extended: false }));
-    }
+        this.expressApp.use(session({ secret: "keyboard cat" }));
+        this.expressApp.use(cookieParser());
+        this.expressApp.use(passport.initialize());
+        this.expressApp.use(passport.session());
+    };
+    App.prototype.validateAuth = function (req, res, next) {
+        if (req.isAuthenticated()) {
+            console.log("user is authenticated. displayName : " + req.user.displayname);
+            return next();
+        }
+        console.log("user is not authenticated");
+        res.redirect("/");
+    };
     // Configure API endpoints.
-    routes() {
-        let router = express.Router();
+    App.prototype.routes = function () {
+        var _this = this;
+        var router = express.Router();
         //What do we need
         /*
         Create User
@@ -59,79 +101,106 @@ class App {
         delete comment
         */
         // #################################################
+        // ##############  OAUTH2 Methods   ################
+        // #################################################
+        router.get("/app/getUserSSO/", this.validateAuth, function (req, res) {
+            console.log("cookies: " + req.cookies);
+            console.log("User: " + req);
+        });
+        router.get("/auth/google", passport.authenticate("google", { scope: ["profile"] }));
+        router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), function (req, res) {
+            console.log("successfully authenticated user and returned to callback page.");
+            console.log("redirecting to /mempage");
+            res.redirect("http://localhost:4200/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"); // ----------------------------------------------------------change this
+        });
+        // #################################################
         // ##############  USERS METHODS    ################
         // #################################################
         //Create User
-        router.post("/app/users/", (req, res) => {
-            this.User.createUser(res, req.body);
+        router.post("/app/users/", function (req, res) {
+            _this.User.createUser(res, req.body);
         });
         //Get User Details
-        router.get("/app/users/:userId/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-            this.User.retrieveUserDetails(res, { userId: req.params.userId });
-        }));
-        router.put("/app/users/", (req, res) => {
-            this.User.updateUserDetails(res, req.body);
+        router.get("/app/users/:userId/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.User.retrieveUserDetails(res, { userId: req.params.userId });
+                return [2 /*return*/];
+            });
+        }); });
+        router.put("/app/users/", function (req, res) {
+            _this.User.updateUserDetails(res, req.body);
         });
-        router.delete("/app/users/", (req, res) => {
-            this.User.deleteUser(res, req.body);
-            this.Meme.deleteMeme(res, { userId: req.body["userId"] });
-            this.Comment.deleteComment(res, { commentId: req.body["userId"] });
+        router["delete"]("/app/users/", function (req, res) {
+            _this.User.deleteUser(res, req.body);
+            _this.Meme.deleteMeme(res, { userId: req.body["userId"] });
+            _this.Comment.deleteComment(res, { commentId: req.body["userId"] });
         });
         // #################################################
         // ##############  memes METHODS    ################
         // #################################################
         //create a post
-        router.post("/app/memes/", (req, res) => {
-            this.Meme.createPost(res, req.body);
+        router.post("/app/memes/", function (req, res) {
+            _this.Meme.createPost(res, req.body);
         });
         //get individual post details by id
-        router.get("/app/memes/:memeId/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-            this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
-        }));
+        router.get("/app/memes/:memeId/", this.validateAuth, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                console.log("Console Log of Req" + req);
+                console.log("Cookies: ", req.cookies);
+                this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
+                return [2 /*return*/];
+            });
+        }); });
         //load feed (get post by day)
-        router.get("/app/memes/day/:day", (req, res) => {
-            this.Meme.getFeed(res, { timePost: new Date(req.params.day) });
+        router.get("/app/memes/day/:day", function (req, res) {
+            _this.Meme.getFeed(res, { timePost: new Date(req.params.day) });
         });
-        router.put("/app/memes/", (req, res) => {
-            this.Meme.updatePostDetails(res, req.body);
+        router.put("/app/memes/", function (req, res) {
+            _this.Meme.updatePostDetails(res, req.body);
         });
-        router.delete("/app/memes/", (req, res) => {
-            this.Meme.deleteMeme(res, req.body);
-            this.Comment.deleteComment(res, { commentId: req.body["memeId"] });
+        router["delete"]("/app/memes/", function (req, res) {
+            _this.Meme.deleteMeme(res, req.body);
+            _this.Comment.deleteComment(res, { commentId: req.body["memeId"] });
         });
         // #################################################
         // ##############  COMMENT METHODS    ################
         // #################################################
-        router.post("/app/comments/", (req, res) => {
-            this.Comment.createComment(res, req.body);
+        router.post("/app/comments/", function (req, res) {
+            _this.Comment.createComment(res, req.body);
         });
-        router.get("/app/comments/:commentId", (req, res) => __awaiter(this, void 0, void 0, function* () {
-            this.Comment.retrieveComment(res, { commentId: req.params.commentId });
-        }));
+        router.get("/app/comments/:commentId", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.Comment.retrieveComment(res, { commentId: req.params.commentId });
+                return [2 /*return*/];
+            });
+        }); });
         //get all comments on a post
-        router.get("/app/memes/comment/:memeId", (req, res) => __awaiter(this, void 0, void 0, function* () {
-            this.Comment.retrieveComments(res, { memeId: req.params.memeId });
-            // this.Comment.retrieveComment(res, req.body as ICommentModel);
-        }));
-        router.put("/app/memes/comments/", (req, res) => {
-            this.Comment.updateComment(res, req.body);
+        router.get("/app/memes/comment/:memeId", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                this.Comment.retrieveComments(res, { memeId: req.params.memeId });
+                return [2 /*return*/];
+            });
+        }); });
+        router.put("/app/memes/comments/", function (req, res) {
+            _this.Comment.updateComment(res, req.body);
         });
-        router.delete("/app/memes/comments/", (req, res) => {
-            this.Comment.deleteComment(res, req.body);
+        router["delete"]("/app/memes/comments/", function (req, res) {
+            _this.Comment.deleteComment(res, req.body);
         });
         // #################################################
         // ##############  VOTE METHODS    #################
         // #################################################
-        router.post("/app/memes/votes/", (req, res) => {
-            this.Vote.createVote(res, req.body);
+        router.post("/app/memes/votes/", function (req, res) {
+            _this.Vote.createVote(res, req.body);
         });
-        router.delete("/app/memes/votes/", (req, res) => {
-            this.Vote.deleteVote(res, req.body);
+        router["delete"]("/app/memes/votes/", function (req, res) {
+            _this.Vote.deleteVote(res, req.body);
         });
         this.expressApp.use("/", router);
         this.expressApp.use("/app/json/", express.static(__dirname + "/app/json"));
         this.expressApp.use("/images", express.static(__dirname + "/img"));
-        this.expressApp.use("/", express.static(__dirname + "/angularSrc"));
-    }
-}
+        this.expressApp.use("/", express.static(__dirname + "/pages"));
+    };
+    return App;
+}());
 exports.App = App;

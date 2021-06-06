@@ -1,29 +1,36 @@
 {
-  "name": "sinkorswim2021",
+  "name": "expressmongoserver",
   "version": "1.0.0",
   "description": "This directory contains two express servers: * AppServer.js - Combined Node/Express web server w/ Mongo Access * Server.js - Encapsulated Node/Express web server w/ Mongo Access",
   "main": "./AppServer.js",
   "dependencies": {
     "@types/morgan": "^1.9.2",
     "@types/node": "^9.6.61",
-    "SampleMocha": "file:mocha",
+    "@types/passport": "^1.0.6",
+    "api": "^3.1.0",
     "assert": "^1.5.0",
-    "async": "^2.6.1",
     "body-parser": "^1.19.0",
-    "chai": "^4.3.4",
-    "chai-http": "^4.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "debug": "^2.6.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "faker": "^5.5.3",
-    "mocha": "^5.2.0",
+    "google": "^2.1.0",
     "mongo": "^0.1.0",
     "mongodb": "^2.2.36",
     "mongoose": "^5.10.19",
     "morgan": "^1.10.0",
+    "oauth20": "^3.0.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20-with-people-api": "^2.0.0",
     "path": "^0.12.7",
+    "people": "^1.0.0",
     "q": "^1.5.1",
-    "url": "^0.11.0"
+    "session": "^0.1.0",
+    "url": "^0.11.0",
+    "with": "^7.0.2"
   },
   "devDependencies": {
     "@types/body-parser": "^1.19.0",
@@ -33,7 +40,7 @@
     "typescript": "^2.9.2"
   },
   "scripts": {
-    "test": "mocha ./tests/*.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node AppServer.js"
   },
   "noAnalyze": true,
