@@ -1,0 +1,102 @@
+<div class="panel panel-default">
+  <div class="row p-3">
+    <div class="col-md-6">
+      <!-- [routerLink]="['../memes/', {{memeId}}]" -->
+      <img
+        
+        routerLink="../../../memes/{{memeId}}"
+        width="450"
+        src="{{imageUrl}}"
+      />
+    </div>
+    <div class="col-md-5">
+      <!-- <div class="row">
+        <div class="col-md-2 px-4">
+          <img
+            height="65"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4KP47dPsz_bI91LkZalV1aMQf4720tshqOP92l1HgIDUp2d6j9f5rvOUi9TSGIXSoPnM&usqp=CAU"
+          />
+        </div>
+        <div class="col-md-10 px-5">
+          <h4>
+            <strong>{{userName}}</strong>
+          </h4>
+          <p>Dis me LMAO</p>
+        </div>
+      </div> -->
+      <div *ngFor="let commentId of commentIds">
+        <feed-comment commentId="{{commentId}}"></feed-comment>
+      </div>
+      <!-- <div class="row">
+        <div class="col-md-2 px-4">
+          <img
+            class="justify-right"
+            height="65"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbLYColuAg_XtboZLoetQitFYt0pboFbc8d2T4KzblsH8_HaZvfdkwT-tGOCHrAo-GeQ&usqp=CAU"
+          />
+        </div>
+        <div class="col-md-10 px-5">
+          <label>joe_bob_fake</label>
+          <p>wow I can really relate</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 px-4">
+          <img
+            height="65"
+            src="https://www.minnesotangos.org/sites/default/files/Allie%20Baker%20Round_1.png"
+          />
+        </div>
+        <div class="col-md-10 px-5">
+          <label>another_loser</label>
+          <p>BURN THE HOUSE DOWN</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 px-4">
+          <img
+            height="65"
+            src="https://image.flaticon.com/icons/png/512/61/61205.png"
+          />
+        </div>
+        <div class="col-md-10 px-5">
+          <label>who_am_i</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Comment"
+            id="usr"
+          />
+        </div>
+      </div> -->
+    </div>
+    <div class="col-md-1">
+      <!-- Buttons - upvote/downvote/comment -->
+    <div class="col-md-1" id="buttons-col">
+      <div id="upvote-button" class="row">
+        <input 
+        type="image" 
+        src="https://i.ibb.co/1f0Vpm2/arrow-up.png"
+        height="50"
+        class="button"
+        (click)="upvoteMethod()"/>
+      </div>
+      <div id="downvote-button" class="row">
+        <input 
+        type="image" 
+        src="https://i.ibb.co/xLN283n/arrow-down.png"
+        height="50"
+        class="button"
+        (click)="downvoteMethod()"/>
+      </div>
+      <div id="comment-button" class="row">
+        <input 
+        type="image" 
+        src="https://i.ibb.co/qp19KYP/comment-button.png"
+        height="50"
+        class="button"
+        (click)="addCommentMethod()"/>
+      </div>
+    </div>
+  </div>
+</div>

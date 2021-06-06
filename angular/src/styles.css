@@ -1,0 +1,108 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Montserrat|Oswald|Poppins');
+
+
+:root {
+    --primary-color: #000022;
+    --secondary-color: #CE2842;
+    --primary-light-color: #FFEFD3;
+    --secondary-light-color: #EC544B;
+    --highlight-color: #F49722;
+    --text-color: #FFFFFF;
+  }
+
+h1 {
+    color: var(--primary-light-color);
+    font-family: 'Bebas Neue';
+  }
+  h2, h3 {
+    color: var(--secondary-color);
+    font-family: 'Oswald';
+  }
+  h4 {
+    color: var(--secondary-light-color);
+    font-family: 'Poppins';
+    font-weight: 'light';
+    font-style: italic;
+  }
+  body {
+      background-color: var(--primary-color);
+    margin: 2em;
+  }
+  body, input[type="text"], button {
+    color: var(--primary-color);
+    font-family: 'Montserrat';
+  }
+  p {
+      font-family: 'Montserrat';
+      color: var(--primary-color);
+  }
+  label {
+      font-family: 'Oswald';
+      color: var(--primary-color);
+  }
+  /* title-nav{
+      font-size: 250%;
+  } */
+
+  body {
+    background-color: var(--primary-color);
+  background-color: var(--primary-color);
+  margin: 2em;
+  /* overflow: hidden; */
+}
+body, input[type="text"], button {
+  color: var(--primary-color);
+}
+
+#buttons-col {
+  position: relative;
+  min-height: 270px;
+}
+#comment-button {
+  position: absolute;
+  bottom: 0px;
+}
+#upvote-button {
+  position: absolute;
+  bottom: 55px;
+}
+#downvote-button {
+  position: absolute;
+  bottom: 110px;
+}
+
+.container {
+  height: 80vh;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10px 1fr 700px;
+}
+.body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* overflow: hidden; */
+ }
+.content {
+  overflow-y: scroll;
+  padding: 10px;
+ }
+
+.header {
+  border-bottom: 1px solid white;
+}
+.meme-image{
+  max-height: 450px;
+  max-width: 550px;
+}
+.padding{
+  min-height: 10px;
+}
+.sidebar {
+  padding-left: -10px;
+}
+  * {
+    font-family: 'Bebas Neue','Montserrat';
+    color: var(--primary-color)
+  }

@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <!-- <app-meme *ngFor="let item of memes" [memeModel]="meme"></app-meme> -->
+<!-- 
+      <app-meme memeId="4000" [routerLink]="['/meme','4000']"></app-meme> -->
+
+      <div *ngFor="let memeId of memeIds"><app-meme-list-item memeId="{{memeId}}"></app-meme-list-item></div>
+
+    </div>
+    <div class="col-md-2">
+      <div class="panel panel-default">
+        <h4 class="text-muted">this is where ads live</h4>
+        <img
+          src="https://imagizer.imageshack.com/v2/172x835q90/923/qUAmxP.png"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="/script.js"></script>
