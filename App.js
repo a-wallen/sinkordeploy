@@ -37,20 +37,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.App = void 0;
-//import * as path from 'path';
 var express = require("express");
 var logger = require("morgan");
-//import * as mongodb from 'mongodb';
-//import * as url from 'url';
 var bodyParser = require("body-parser");
+var session = require("express-session");
+var cookieParser = require("cookie-parser");
 var UserModel_1 = require("./model/UserModel");
 var MemeModel_1 = require("./model/MemeModel");
 var CommentModel_1 = require("./model/CommentModel");
 var VoteModel_1 = require("./model/VoteModel");
+var GooglePassport_1 = require("./GooglePassport");
+var passport = require("passport");
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
     //Run configuration methods on the Express instance.
     function App() {
+        this.googlePassportObj = new GooglePassport_1["default"]();
         this.expressApp = express();
         this.middleware();
         this.routes();
@@ -66,6 +68,18 @@ var App = /** @class */ (function () {
         this.expressApp.use(logger("dev"));
         this.expressApp.use(bodyParser.json());
         this.expressApp.use(bodyParser.urlencoded({ extended: false }));
+        this.expressApp.use(session({ secret: "keyboard cat" }));
+        this.expressApp.use(cookieParser());
+        this.expressApp.use(passport.initialize());
+        this.expressApp.use(passport.session());
+    };
+    App.prototype.validateAuth = function (req, res, next) {
+        if (req.isAuthenticated()) {
+            console.log("user is authenticated. displayName : " + req.user.displayname);
+            return next();
+        }
+        console.log("user is not authenticated");
+        res.redirect("/");
     };
     // Configure API endpoints.
     App.prototype.routes = function () {
@@ -86,6 +100,19 @@ var App = /** @class */ (function () {
         update comment
         delete comment
         */
+        // #################################################
+        // ##############  OAUTH2 Methods   ################
+        // #################################################
+        router.get("/app/getUserSSO/", this.validateAuth, function (req, res) {
+            console.log("cookies: " + req.cookies);
+            console.log("User: " + req);
+        });
+        router.get("/auth/google", passport.authenticate("google", { scope: ["profile"] }));
+        router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), function (req, res) {
+            console.log("successfully authenticated user and returned to callback page.");
+            console.log("redirecting to /mempage");
+            res.redirect("http://localhost:4200/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"); // ----------------------------------------------------------change this
+        });
         // #################################################
         // ##############  USERS METHODS    ################
         // #################################################
@@ -116,8 +143,10 @@ var App = /** @class */ (function () {
             _this.Meme.createPost(res, req.body);
         });
         //get individual post details by id
-        router.get("/app/memes/:memeId/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        router.get("/app/memes/:memeId/", this.validateAuth, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
+                console.log("Console Log of Req" + req);
+                console.log("Cookies: ", req.cookies);
                 this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
                 return [2 /*return*/];
             });

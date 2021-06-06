@@ -1,12 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs"
+    "target": "es2020",
+    "module": "commonjs",
+    "skipLibCheck": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

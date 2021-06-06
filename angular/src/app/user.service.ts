@@ -4,8 +4,7 @@ import "rxjs/add/operator/map";
 
 @Injectable()
 export class UserService {
-
-  constructor(private http: Http) { }
+  constructor(private http: Http) {}
 
   fetchUser(userId: string) {
     console.log("http://localhost:8080/app/users/" + userId);
@@ -13,5 +12,10 @@ export class UserService {
       .get("http://localhost:8080/app/users/" + userId)
       .map((response) => response.json());
   }
-}
 
+  getAuthUser() {
+    return this.http
+      .get("http://localhost:8080/app/getUserSSO/")
+      .map((response) => response.json());
+  }
+}

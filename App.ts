@@ -1,22 +1,24 @@
-//import * as path from 'path';
+import * as path from "path";
 import * as express from "express";
 import * as logger from "morgan";
-//import * as mongodb from 'mongodb';
-//import * as url from 'url';
+import * as mongodb from "mongodb";
+import * as url from "url";
 import * as bodyParser from "body-parser";
-//var MongoClient = require('mongodb').MongoClient;
-//var Q = require('q');
-import { DataAccess } from "./DataAccess";
+import * as session from "express-session";
+import * as cookieParser from "cookie-parser";
 
+import { DataAccess } from "./DataAccess";
 import { IUserModel } from "./interfaces/IUserModel";
 import { IMemeModel } from "./interfaces/IMemeModel";
 import { ICommentModel } from "./interfaces/ICommentModel";
 import { IVoteModel } from "./interfaces/IVoteModel";
-
 import { UserModel } from "./model/UserModel";
 import { MemeModel } from "./model/MemeModel";
 import { CommentModel } from "./model/CommentModel";
 import { VoteModel } from "./model/VoteModel";
+
+import GooglePassportObj from "./GooglePassport";
+import * as passport from "passport";
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -30,8 +32,12 @@ class App {
 
   public idGenerator: number;
 
+  public googlePassportObj: GooglePassportObj;
+
   //Run configuration methods on the Express instance.
   constructor() {
+    this.googlePassportObj = new GooglePassportObj();
+
     this.expressApp = express();
     this.middleware();
     this.routes();
@@ -49,6 +55,21 @@ class App {
     this.expressApp.use(logger("dev"));
     this.expressApp.use(bodyParser.json());
     this.expressApp.use(bodyParser.urlencoded({ extended: false }));
+    this.expressApp.use(session({ secret: "keyboard cat" }));
+    this.expressApp.use(cookieParser());
+    this.expressApp.use(passport.initialize());
+    this.expressApp.use(passport.session());
+  }
+
+  private validateAuth(req, res, next): void {
+    if (req.isAuthenticated()) {
+      console.log(
+        "user is authenticated. displayName : " + req.user.displayname
+      );
+      return next();
+    }
+    console.log("user is not authenticated");
+    res.redirect("/");
   }
 
   // Configure API endpoints.
@@ -71,6 +92,34 @@ class App {
     update comment
     delete comment
     */
+
+    // #################################################
+    // ##############  OAUTH2 Methods   ################
+    // #################################################
+
+    router.get("/app/getUserSSO/", this.validateAuth, (req, res) => {
+      console.log("cookies: " + req.cookies);
+      console.log("User: " + req);
+    });
+
+    router.get(
+      "/auth/google",
+      passport.authenticate("google", { scope: ["profile"] })
+    );
+
+    router.get(
+      "/auth/google/callback",
+      passport.authenticate("google", { failureRedirect: "/" }),
+      (req, res) => {
+        console.log(
+          "successfully authenticated user and returned to callback page."
+        );
+        console.log("redirecting to /mempage");
+        res.redirect(
+          "http://localhost:4200/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"
+        ); // ----------------------------------------------------------change this
+      }
+    );
 
     // #################################################
     // ##############  USERS METHODS    ################
@@ -106,7 +155,9 @@ class App {
     });
 
     //get individual post details by id
-    router.get("/app/memes/:memeId/", async (req, res) => {
+    router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
+      console.log("Console Log of Req" + req);
+      console.log("Cookies: ", req.cookies);
       this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
     });
 
@@ -133,7 +184,7 @@ class App {
     });
 
     router.get("/app/comments/:commentId", async (req, res) => {
-        this.Comment.retrieveComment(res, { commentId: req.params.commentId });
+      this.Comment.retrieveComment(res, { commentId: req.params.commentId });
     });
 
     //get all comments on a post
@@ -141,7 +192,7 @@ class App {
       this.Comment.retrieveComments(res, { memeId: req.params.memeId });
       // this.Comment.retrieveComment(res, req.body as ICommentModel);
     });
-    
+
     router.put("/app/memes/comments/", (req, res) => {
       this.Comment.updateComment(res, req.body as ICommentModel);
     });

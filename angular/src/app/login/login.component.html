@@ -1,44 +1,65 @@
-<body style="background-color: #666666;">
+<meta
+  name="google-signin-client_id"
+  content="131963474491-f02cagbubq846imio4ujgpvf1ok38bom.apps.googleusercontent.com"
+/>
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<body style="background-color: #666666">
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100">
         <form class="login100-form validate-form">
-          <span class="login100-form-title p-b-43">
-            Login to continue
-          </span>
-          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-            <input class="input100" type="text" name="email">
+          <span class="login100-form-title p-b-43"> Login to continue </span>
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="Valid email is required: ex@abc.xyz"
+          >
+            <input class="input100" type="text" name="email" />
             <span class="focus-input100"></span>
             <span class="label-input100">Email</span>
           </div>
-          <div class="wrap-input100 validate-input" data-validate="Password is required">
-            <input class="input100" type="password" name="pass">
+          <div
+            class="wrap-input100 validate-input"
+            data-validate="Password is required"
+          >
+            <input class="input100" type="password" name="pass" />
             <span class="focus-input100"></span>
             <span class="label-input100">Password</span>
           </div>
           <div class="flex-sb-m w-full p-t-3 p-b-32">
             <div class="contact100-form-checkbox">
-              <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-              <label class="label-checkbox100" for="ckb1">
-                Remember me
-              </label>
+              <input
+                class="input-checkbox100"
+                id="ckb1"
+                type="checkbox"
+                name="remember-me"
+              />
+              <label class="label-checkbox100" for="ckb1"> Remember me </label>
             </div>
             <div>
-              <a href="#" class="txt1">
-                Forgot Password?
-              </a>
+              <a href="#" class="txt1"> Forgot Password? </a>
             </div>
           </div>
           <div class="container-login100-form-btn">
-            <button class="login100-form-btn" routerLink="../memes/day/2021-05-02T23:03:18.254+00:00">
+            <button
+              class="login100-form-btn"
+              routerLink="../memes/day/2021-05-02T23:03:18.254+00:00"
+            >
               Login
             </button>
           </div>
+
           <div class="text-center p-t-46 p-b-20">
-            <span class="txt2">
-              or sign up using
-            </span>
+            <span class="txt2"> or sign up using </span>
+
+            <a
+              class="btn btn lg btn primary"
+              href="http://localhost:8080/auth/google"
+              role="button"
+              >Google Login</a
+            >
           </div>
+
           <div class="login100-form-social flex-c-m">
             <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
               <i class="fa fa-facebook-f" aria-hidden="true"></i>
@@ -48,12 +69,17 @@
             </a>
           </div>
         </form>
-        <div class="login100-more" style="background-image: url('https://artsybucket.com/wp-content/uploads/2020/08/1252Ff252F4252Ff252F1f4f2dc1f98ce910b07e81727060c2b8c85b5535_1598417615-416x583.jpg');">
-        </div>
+        <div
+          class="login100-more"
+          style="
+            background-image: url('https://artsybucket.com/wp-content/uploads/2020/08/1252Ff252F4252Ff252F1f4f2dc1f98ce910b07e81727060c2b8c85b5535_1598417615-416x583.jpg');
+          "
+        ></div>
       </div>
     </div>
   </div>
-<!-- 
+
+  <!-- 
   <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
   <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 
@@ -81,3 +107,4 @@
   </script>
   <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon="{&quot;rayId&quot;:&quot;65469ba35c99f4d4&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2021.5.1&quot;,&quot;si&quot;:10}"></script> -->
+</body>

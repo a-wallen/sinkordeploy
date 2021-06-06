@@ -1,0 +1,8 @@
+Client ID: 131963474491-f02cagbubq846imio4ujgpvf1ok38bom.apps.googleusercontent.com
+
+Client Secret: vULake3O3CC1c7CTbJMMobyA
+
+email: sinkorswim.saas@gmail.com
+password: Password~1
+
+Link to page: https://console.cloud.google.com/
