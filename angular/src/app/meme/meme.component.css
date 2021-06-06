@@ -1,0 +1,36 @@
+.test {
+  height: 200px;
+  width: 200px;
+}
+.button {
+  background-color: transparent; /* make the button transparent */
+  background-repeat: no-repeat; /* make the background image appear only once */
+  background-position: 0px 0px; /* equivalent to 'top left' */
+  border: none; /* assuming we don't want any borders */
+  cursor: pointer; /* make the cursor like hovering over an <a> element */
+  height: 50px; /* make this the size of your image */
+  width: 50x;
+  float: "left";
+  padding-left: 0px; /* make text start to the right of the image */
+  vertical-align: middle; /* align the text vertically centered */
+}
+
+.memeImage {
+  width: 500px;
+  height: 500px;
+  float: right;
+  padding: 10px;
+  border-radius: 50px;
+}
+.reportButton {
+  background-color: transparent; /* make the button transparent */
+  background-repeat: no-repeat; /* make the background image appear only once */
+  background-position: 0px 0px; /* equivalent to 'top left' */
+  border: none; /* assuming we don't want any borders */
+  cursor: pointer; /* make the cursor like hovering over an <a> element */
+  height: 50px; /* make this the size of your image */
+  width: 50x;
+  float: "left";
+  padding-left: 0px; /* make text start to the right of the image */
+  vertical-align: middle; /* align the text vertically centered */
+}
