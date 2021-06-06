@@ -114,9 +114,9 @@ class App {
         console.log(
           "successfully authenticated user and returned to callback page."
         );
-        console.log("redirecting to /mempage");
+        console.log("redirecting to meme page");
         res.redirect(
-          "http://localhost:4200/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"
+          "http://localhost:4200/#/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"
         ); // ----------------------------------------------------------change this
       }
     );
@@ -154,13 +154,17 @@ class App {
       this.Meme.createPost(res, req.body as IMemeModel);
     });
 
+    // //get individual post details by id
+    // router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
+    //   console.log("Console Log of Req" + req);
+    //   console.log("Cookies: ", req.cookies);
+    //   this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
+    // });
+
     //get individual post details by id
-    router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
-      console.log("Console Log of Req" + req);
-      console.log("Cookies: ", req.cookies);
+    router.get("/app/memes/:memeId/", async (req, res) => {
       this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
     });
-
     //load feed (get post by day)
     router.get("/app/memes/day/:day", (req, res) => {
       this.Meme.getFeed(res, { timePost: new Date(req.params.day) });
