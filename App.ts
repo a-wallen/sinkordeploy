@@ -19,6 +19,7 @@ import { VoteModel } from "./model/VoteModel";
 
 import GooglePassportObj from "./GooglePassport";
 import * as passport from "passport";
+import { isIfStatement } from "typescript";
 
 // Creates and configures an ExpressJS web server.
 class App {
@@ -64,12 +65,32 @@ class App {
   private validateAuth(req, res, next): void {
     if (req.isAuthenticated()) {
       console.log(
-        "user is authenticated. displayName : " + req.user.displayname
+        "user is authenticated. displayName : " + req.user.displayName
       );
       return next();
     }
     console.log("user is not authenticated");
     res.redirect("/");
+  }
+
+  private getUserName(req, res) {
+    //return
+    if (req.isAuthenticated()) {
+      console.log("User name :" + req.user.displayName);
+
+      res.json(req.user.displayName);
+      console.log(res);
+      console.log(JSON.stringify(res));
+      console.log("\n");
+      console.log("\n");
+      console.log("\n");
+
+      return;
+    } else {
+      //return not signed in
+      console.log("is this the fuck up\n");
+      return res.json("Not signed in");
+    }
   }
 
   // Configure API endpoints.
@@ -97,9 +118,9 @@ class App {
     // ##############  OAUTH2 Methods   ################
     // #################################################
 
-    router.get("/app/getUserSSO/", this.validateAuth, (req, res) => {
-      console.log("cookies: " + req.cookies);
-      console.log("User: " + req);
+    router.get("/app/getUserSSO/", (req, res) => {
+      console.log("enters app.ts get User SSO\n");
+      this.getUserName(req, res);
     });
 
     router.get(
@@ -152,17 +173,17 @@ class App {
       this.Meme.createPost(res, req.body as IMemeModel);
     });
 
-    // //get individual post details by id
-    // router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
-    //   console.log("Console Log of Req" + req);
-    //   console.log("Cookies: ", req.cookies);
-    //   this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
-    // });
-
     //get individual post details by id
-    router.get("/app/memes/:memeId/", async (req, res) => {
+    router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
+      //console.log("Console Log of Req" + req);
+      // console.log("Cookies: ", req.cookies);
       this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
     });
+
+    // //get individual post details by id
+    // router.get("/app/memes/:memeId/", async (req, res) => {
+    //   this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
+    // });
     //load feed (get post by day)
     router.get("/app/memes/day/:day", (req, res) => {
       this.Meme.getFeed(res, { timePost: new Date(req.params.day) });

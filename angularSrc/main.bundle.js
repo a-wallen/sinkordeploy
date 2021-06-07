@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r\n\r\n    .navbar-custom {\r\n      background-color: var(--primary-color);\r\n    }\r\n    /* Modify brand and text color */\r\n\r\n    .navbar-custom .navbar-brand,\r\n    .navbar-custom .navbar-text,\r\n    .navbar-custom .nav-link,\r\n    .navbar-custom .navbar-nav {\r\n      color: var(--secondary-light-color);\r\n    }\r\n  </style>\r\n\r\n  <link\r\n    href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"\r\n    rel=\"stylesheet\"\r\n    integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\"\r\n    crossorigin=\"anonymous\"\r\n  />\r\n</head>\r\n\r\n<body>\r\n  <nav class=\"navbar navbar-custom\">\r\n    <div class=\"container-fluid\" style=\"color: var(--primary-color)\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\" style=\"font-size: 250%\" href=\"/#\"\r\n          >SINK OR SWIM</a\r\n        >\r\n      </div>\r\n      <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" style=\"font-size: 200%\" href=\"#\">Home</a>\r\n          </li>\r\n          <li class=\"nav-item dropdown\">\r\n            <a\r\n              class=\"nav-link dropdown-toggle\"\r\n              style=\"font-size: 200%\"\r\n              href=\"#\"\r\n              id=\"navbardrop\"\r\n              data-toggle=\"dropdown\"\r\n            >\r\n              Archives\r\n            </a>\r\n            <!-- FOR SOME REASON THE DROPDOWN DOESN'T FUCKING WORK???????? time to give up on that shit -->\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Day</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Month</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Year</a>\r\n            </div>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li>\r\n            <a\r\n              href=\"#\"\r\n              style=\"color: var(--secondary-light-color); font-size: 200%\"\r\n              >Login</a\r\n            >\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <router-outlet></router-outlet>\r\n</body>\r\n"
+module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r\n\r\n    .navbar-custom {\r\n      background-color: var(--primary-color);\r\n    }\r\n    /* Modify brand and text color */\r\n\r\n    .navbar-custom .navbar-brand,\r\n    .navbar-custom .navbar-text,\r\n    .navbar-custom .nav-link,\r\n    .navbar-custom .navbar-nav {\r\n      color: var(--secondary-light-color);\r\n    }\r\n  </style>\r\n\r\n  <link\r\n    href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\"\r\n    rel=\"stylesheet\"\r\n    integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\"\r\n    crossorigin=\"anonymous\"\r\n  />\r\n</head>\r\n\r\n<body>\r\n  <nav class=\"navbar navbar-custom\">\r\n    <div class=\"container-fluid\" style=\"color: var(--primary-color)\">\r\n      <div class=\"navbar-header\">\r\n        <a class=\"navbar-brand\" style=\"font-size: 250%\" href=\"/#\"\r\n          >SINK OR SWIM</a\r\n        >\r\n      </div>\r\n      <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n        <ul class=\"nav navbar-nav\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" style=\"font-size: 200%\" href=\"#\">Home</a>\r\n          </li>\r\n          <li class=\"nav-item dropdown\">\r\n            <a\r\n              class=\"nav-link dropdown-toggle\"\r\n              style=\"font-size: 200%\"\r\n              href=\"#\"\r\n              id=\"navbardrop\"\r\n              data-toggle=\"dropdown\"\r\n            >\r\n              Archives\r\n            </a>\r\n            <!-- FOR SOME REASON THE DROPDOWN DOESN'T FUCKING WORK???????? time to give up on that shit -->\r\n            <div class=\"dropdown-menu\">\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Day</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Month</a>\r\n              <a class=\"dropdown-item\" href=\"#\">Jump to Year</a>\r\n            </div>\r\n          </li>\r\n        </ul>\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <li>\r\n            <a\r\n              href=\"#\"\r\n              style=\"color: var(--secondary-light-color); font-size: 200%\"\r\n              >Current Logged in User : {{ userId }}\r\n            </a>\r\n            <!-- Need to add a function here that calls the backend route /app/getUserSSO/ and displays result -->\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n\r\n  <router-outlet></router-outlet>\r\n</body>\r\n"
 
 /***/ }),
 
@@ -37,6 +37,7 @@ module.exports = "<head>\r\n  <style>\r\n    /* Modify the background color */\r
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_app_user_service__ = __webpack_require__("./src/app/user.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,19 +48,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'app works!';
+    function AppComponent(user$) {
+        this.user$ = user$;
+        this.title = "app works!";
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.userId = this.user$.getDisplayName().toString();
+        console.log("Console Log of App.component" +
+            JSON.stringify(this.user$.getDisplayName()));
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Component */])({
-            selector: 'app-root',
+            selector: "app-root",
             template: __webpack_require__("./src/app/app.component.html"),
-            styles: [__webpack_require__("./src/app/app.component.css")]
+            styles: [__webpack_require__("./src/app/app.component.css")],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_app_user_service__["a" /* UserService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1_app_user_service__["a" /* UserService */]) === 'function' && _a) || Object])
     ], AppComponent);
     return AppComponent;
+    var _a;
 }());
 //# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/app.component.js.map
 
@@ -209,12 +218,12 @@ var CommentService = (function () {
     }
     CommentService.prototype.fetchMemeComments = function (memeId) {
         return this.http
-            .get("http://localhost:8080/app/memes/comment/" + memeId)
+            .get("/app/memes/comment/" + memeId)
             .map(function (response) { return response.json(); });
     };
     CommentService.prototype.fetchCommentDetails = function (commentId) {
         return this.http
-            .get("http://localhost:8080/app/comments/" + commentId)
+            .get("/app/comments/" + commentId)
             .map(function (response) { return response.json(); });
     };
     CommentService = __decorate([
@@ -315,7 +324,7 @@ module.exports = ""
 /***/ "./src/app/feed/feed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10\">\r\n      <!-- <app-meme *ngFor=\"let item of memes\" [memeModel]=\"meme\"></app-meme> -->\r\n<!-- \r\n      <app-meme memeId=\"4000\" [routerLink]=\"['/meme','4000']\"></app-meme> -->\r\n\r\n      <div *ngFor=\"let memeId of memeIds\"><app-meme-list-item memeId=\"{{memeId}}\"></app-meme-list-item></div>\r\n\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <div class=\"panel panel-default\">\r\n        <h4 class=\"text-muted\">this is where ads live</h4>\r\n        <img\r\n          src=\"https://imagizer.imageshack.com/v2/172x835q90/923/qUAmxP.png\"\r\n        />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\r\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\r\n<script src=\"/script.js\"></script>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10\">\r\n      <!-- <app-meme *ngFor=\"let item of memes\" [memeModel]=\"meme\"></app-meme> -->\r\n      <!-- \r\n      <app-meme memeId=\"4000\" [routerLink]=\"['/meme','4000']\"></app-meme> -->\r\n\r\n      <div *ngFor=\"let memeId of memeIds\">\r\n        <app-meme-list-item memeId=\"{{ memeId }}\"></app-meme-list-item>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <div class=\"panel panel-default\">\r\n        <h4 class=\"text-muted\">this is where ads live</h4>\r\n        <img\r\n          src=\"https://imagizer.imageshack.com/v2/172x835q90/923/qUAmxP.png\"\r\n        />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\r\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\r\n<script src=\"/script.js\"></script>\r\n"
 
 /***/ }),
 
@@ -350,6 +359,7 @@ var FeedComponent = (function () {
         this.route = route;
         this.location = location;
         this.meme$ = meme$;
+        //change to current date later
         this.memeIds = [];
     }
     FeedComponent.prototype.ngOnInit = function () {
@@ -368,9 +378,9 @@ var FeedComponent = (function () {
     FeedComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["v" /* Component */])({
             // moduleId: module.id,
-            selector: 'app-feed',
+            selector: "app-feed",
             template: __webpack_require__("./src/app/feed/feed.component.html"),
-            styles: [__webpack_require__("./src/app/feed/feed.component.css")]
+            styles: [__webpack_require__("./src/app/feed/feed.component.css")],
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common__["e" /* Location */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_common__["e" /* Location */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__meme_service__["a" /* MemeService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_5__meme_service__["a" /* MemeService */]) === 'function' && _c) || Object])
     ], FeedComponent);
@@ -561,13 +571,11 @@ var MemeService = (function () {
     };
     MemeService.prototype.getFeed = function (datetime) {
         return this.http
-            .get("http://localhost:8080/app/memes/day/" + datetime)
+            .get("/app/memes/day/" + datetime)
             .map(function (response) { return response.json(); });
     };
     MemeService.prototype.getUserInfo = function (userId) {
-        return this.http
-            .get("http://localhost:8080/app/users/" + userId)
-            .map(function (data) {
+        return this.http.get("/app/users/" + userId).map(function (data) {
             data["userId"];
         });
     };
@@ -582,7 +590,7 @@ var MemeService = (function () {
     };
     MemeService.prototype.getItems = function (index) {
         return (this.http
-            .get("http://localhost:8080/json/lists/" + index + ".json")
+            .get("/json/lists/" + index + ".json")
             .map(function (response) { return response.json(); }));
     };
     MemeService = __decorate([
@@ -797,10 +805,14 @@ var UserService = (function () {
         this.http = http;
     }
     UserService.prototype.fetchUser = function (userId) {
-        console.log("http://localhost:8080/app/users/" + userId);
+        console.log("/app/users/" + userId);
         return this.http
-            .get("http://localhost:8080/app/users/" + userId)
+            .get("/app/users/" + userId)
             .map(function (response) { return response.json(); });
+    };
+    UserService.prototype.getDisplayName = function () {
+        console.log("Get display name gets called in user service angular\n");
+        return this.http.get("/app/getUserSSO/").map(function (response) { return response.json(); });
     };
     UserService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Injectable */])(), 
@@ -809,6 +821,7 @@ var UserService = (function () {
     return UserService;
     var _a;
 }());
+//do I need to add routes to the sso stuff here?
 //# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/user.service.js.map
 
 /***/ }),

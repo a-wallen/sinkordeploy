@@ -75,11 +75,29 @@ var App = /** @class */ (function () {
     };
     App.prototype.validateAuth = function (req, res, next) {
         if (req.isAuthenticated()) {
-            console.log("user is authenticated. displayName : " + req.user.displayname);
+            console.log("user is authenticated. displayName : " + req.user.displayName);
             return next();
         }
         console.log("user is not authenticated");
         res.redirect("/");
+    };
+    App.prototype.getUserName = function (req, res) {
+        //return
+        if (req.isAuthenticated()) {
+            console.log("User name :" + req.user.displayName);
+            res.json(req.user.displayName);
+            console.log(res);
+            console.log(JSON.stringify(res));
+            console.log("\n");
+            console.log("\n");
+            console.log("\n");
+            return;
+        }
+        else {
+            //return not signed in
+            console.log("is this the fuck up\n");
+            return res.json("Not signed in");
+        }
     };
     // Configure API endpoints.
     App.prototype.routes = function () {
@@ -103,9 +121,9 @@ var App = /** @class */ (function () {
         // #################################################
         // ##############  OAUTH2 Methods   ################
         // #################################################
-        router.get("/app/getUserSSO/", this.validateAuth, function (req, res) {
-            console.log("cookies: " + req.cookies);
-            console.log("User: " + req);
+        router.get("/app/getUserSSO/", function (req, res) {
+            console.log("enters app.ts get User SSO\n");
+            _this.getUserName(req, res);
         });
         router.get("/auth/google", passport.authenticate("google", { scope: ["profile"] }));
         router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), function (req, res) {
@@ -142,19 +160,19 @@ var App = /** @class */ (function () {
         router.post("/app/memes/", function (req, res) {
             _this.Meme.createPost(res, req.body);
         });
-        // //get individual post details by id
-        // router.get("/app/memes/:memeId/", this.validateAuth, async (req, res) => {
-        //   console.log("Console Log of Req" + req);
-        //   console.log("Cookies: ", req.cookies);
-        //   this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
-        // });
         //get individual post details by id
-        router.get("/app/memes/:memeId/", function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+        router.get("/app/memes/:memeId/", this.validateAuth, function (req, res) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
+                //console.log("Console Log of Req" + req);
+                // console.log("Cookies: ", req.cookies);
                 this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
                 return [2 /*return*/];
             });
         }); });
+        // //get individual post details by id
+        // router.get("/app/memes/:memeId/", async (req, res) => {
+        //   this.Meme.retrieveMemeDetails(res, { memeId: req.params.memeId });
+        // });
         //load feed (get post by day)
         router.get("/app/memes/day/:day", function (req, res) {
             _this.Meme.getFeed(res, { timePost: new Date(req.params.day) });
