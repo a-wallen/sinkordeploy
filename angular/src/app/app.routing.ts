@@ -10,7 +10,7 @@ const currentday = "2021-05-02T23:03:18.254+00:00";
 
 const routes: Routes = [
   //probable need to change one of these for sso?
-  //{ path: "", redirectTo: "/login", pathMatch: "full" },
+  { path: "", redirectTo: "/login", pathMatch: "full" },
   { path: "login", component: LoginComponent },
   { path: "memes/day/:day", component: FeedComponent },
   { path: "memes/:memeId", component: MemeComponent },
