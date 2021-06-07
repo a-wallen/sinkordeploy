@@ -49,7 +49,7 @@
   },
   "noAnalyze": true,
   "author": "wallenstephe@seattleu.edu",
-  "license": "Apache",
+  "license": "MIT",
   "keywords": [],
   "engines": {
     "node": "^0.12.2"

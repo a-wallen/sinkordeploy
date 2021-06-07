@@ -1,10 +1,10 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemeModel = void 0;
-var Mongoose = require("mongoose");
-var DataAccess_1 = require("./../DataAccess");
-var mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
-var mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
+const Mongoose = require("mongoose");
+const DataAccess_1 = require("./../DataAccess");
+let mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
+let mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
 /* Post Methods
 // TODO: update user info by number of posts
 CRUD
@@ -19,12 +19,12 @@ feedId that we can use as a query parameter for the post collection
 update: vote, update caption, get reported
 delete: delete a post (done by a user or when a user account gets deleted?)
 */
-var MemeModel = /** @class */ (function () {
-    function MemeModel() {
+class MemeModel {
+    constructor() {
         this.createSchema();
         this.createModel();
     }
-    MemeModel.prototype.createSchema = function () {
+    createSchema() {
         this.schema = new Mongoose.Schema({
             memeId: { type: String, required: true, index: { unique: true } },
             userId: { type: String, required: true },
@@ -32,68 +32,73 @@ var MemeModel = /** @class */ (function () {
             imageUrl: { type: String, required: true },
             caption: { type: String },
             timePost: { type: Date },
-            reports: { type: Number }
+            reports: { type: Number },
         }, { collection: "memes" });
-    };
-    MemeModel.prototype.createModel = function () {
+    }
+    createModel() {
         this.model = mongooseConnection.model("Meme", this.schema);
-    };
-    MemeModel.prototype.createPost = function (response, memeObject) {
+    }
+    createPost(response, memeObject) {
         this.model
             .insertMany(memeObject)
-            .then(function (result) {
+            .then((result) => {
             response.json(result);
-        })["catch"](function (err) {
+        })
+            .catch((err) => {
             response.json(err);
         });
-    };
+    }
     // get a post (via post id)
-    MemeModel.prototype.retrieveMemeDetails = function (response, filter) {
+    retrieveMemeDetails(response, filter) {
         return this.model.find(filter)
-            .then(function (result) { return response.json(result); })["catch"](function (err) { return response.json(err); });
-    };
-    MemeModel.prototype.getFeed = function (response, filter) {
+            .then((result) => response.json(result))
+            .catch((err) => response.json(err));
+    }
+    getFeed(response, filter) {
         this.model
             .find(filter)
-            .then(function (result) {
+            .then((result) => {
             response.json(result);
-        })["catch"](function (err) {
+        })
+            .catch((err) => {
             response.json(err);
         });
-    };
-    MemeModel.prototype.updatePostDetails = function (response, memeObject) {
+    }
+    updatePostDetails(response, memeObject) {
         this.model
             .replaceOne({ memeId: memeObject["postId"] }, memeObject)
-            .then(function (result) {
+            .then((result) => {
             response.json(result);
-        })["catch"](function (err) {
+        })
+            .catch((err) => {
             response.json(err);
         });
-    };
+    }
     // This function is created to increment a meme's vote
     // Params: memeId, voteValue
     // returns: json
     //CHANGED memeID TO STRING INSTEAD OF A NUMBER
-    MemeModel.prototype.voteMeme = function (response, memeId, voteValue) {
+    voteMeme(response, memeId, voteValue) {
         this.model
-            .findByIdAndUpdate(memeId, { $inc: { totalVotes: voteValue } }, { "new": true })
-            .then(function (result) {
+            .findByIdAndUpdate(memeId, { $inc: { totalVotes: voteValue } }, { new: true })
+            .then((result) => {
             response.json(result);
-        })["catch"](function (err) {
+        })
+            .catch((err) => {
             response.json(err);
         });
-    };
+    }
     // delete a post (via post id)
     // TODO: update user info by number of posts
-    MemeModel.prototype.deleteMeme = function (response, memeObject) {
+    deleteMeme(response, memeObject) {
         this.model
             .deleteMany({ memeId: memeObject["memeId"] })
-            .then(function (result) {
+            .then((result) => {
             response.json(result);
-        })["catch"](function (err) {
+        })
+            .catch((err) => {
             response.json(err);
         });
-    };
-    return MemeModel;
-}());
+    }
+}
 exports.MemeModel = MemeModel;

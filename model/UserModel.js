@@ -1,10 +1,10 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserModel = void 0;
-var Mongoose = require("mongoose");
-var DataAccess_1 = require("./../DataAccess");
-var mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
-var mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
+const Mongoose = require("mongoose");
+const DataAccess_1 = require("./../DataAccess");
+let mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
+let mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
 /* Methods to add:
 CRUD
 create a new user
@@ -13,12 +13,12 @@ update user information: update username, update email, update password,
 update user activity: totalUpvotes, swimmingPosts, sinkingPosts, reports
 delete: delete a user
  */
-var UserModel = /** @class */ (function () {
-    function UserModel() {
+class UserModel {
+    constructor() {
         this.createSchema();
         this.createModel();
     }
-    UserModel.prototype.createSchema = function () {
+    createSchema() {
         this.schema = new Mongoose.Schema({
             userId: { type: String, required: true, index: { unique: true } },
             userName: { type: String, required: true },
@@ -30,33 +30,36 @@ var UserModel = /** @class */ (function () {
             sinkingPosts: { type: Number },
             reports: { type: Number }
         }, { collection: 'users' });
-    };
+    }
     // create a user
-    UserModel.prototype.createModel = function () {
+    createModel() {
         this.model = mongooseConnection.model("User", this.schema);
-    };
-    UserModel.prototype.createUser = function (response, userObject) {
+    }
+    createUser(response, userObject) {
         this.model.insertMany(userObject)
-            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
-    };
+            .then((result) => { response.json(result); })
+            .catch((err) => { response.json(err); });
+    }
     // get user details
-    UserModel.prototype.retrieveUserDetails = function (response, filter) {
+    retrieveUserDetails(response, filter) {
         this.model.findOne(filter)
-            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
-    };
-    UserModel.prototype.updateUserDetails = function (response, userObject) {
+            .then((result) => { response.json(result); })
+            .catch((err) => { response.json(err); });
+    }
+    updateUserDetails(response, userObject) {
         this.model.replaceOne({ userId: userObject["userId"] }, userObject)
-            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
-    };
-    UserModel.prototype.deleteUser = function (response, userObject) {
+            .then((result) => { response.json(result); })
+            .catch((err) => { response.json(err); });
+    }
+    deleteUser(response, userObject) {
         this.model.deleteOne(userObject)
-            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
-    };
-    UserModel.prototype.mongoExecHandler = function (response, mongoQuery) {
-        mongoQuery.exec(function (err, result) {
+            .then((result) => { response.json(result); })
+            .catch((err) => { response.json(err); });
+    }
+    mongoExecHandler(response, mongoQuery) {
+        mongoQuery.exec((err, result) => {
             response.json(err ? err : result);
         });
-    };
-    return UserModel;
-}());
+    }
+}
 exports.UserModel = UserModel;

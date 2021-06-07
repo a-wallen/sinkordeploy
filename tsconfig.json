@@ -3,6 +3,6 @@
     "target": "es2020",
     "module": "commonjs"
   },
-  "include": ["src/**/*.ts"],
+  "include": ["./**.ts"],
   "exclude": ["node_modules"]
 }

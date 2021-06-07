@@ -1,21 +1,22 @@
 "use strict";
-exports.__esModule = true;
-var googleOauth2_1 = require("./googleOauth2");
-var passport = require("passport");
+Object.defineProperty(exports, "__esModule", { value: true });
+const googleOauth2_1 = require("./googleOauth2");
+let passport = require("passport");
 //let GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var GoogleStrategy = require("passport-google-oauth20-with-people-api").Strategy;
+let GoogleStrategy = require("passport-google-oauth20-with-people-api").Strategy;
 // Creates a Passport configuration for Google
-var GooglePassport = /** @class */ (function () {
-    function GooglePassport() {
-        this.clientId = googleOauth2_1["default"].id;
-        this.secretId = googleOauth2_1["default"].secret;
+class GooglePassport {
+    constructor() {
+        this.clientId = googleOauth2_1.default.id;
+        this.secretId = googleOauth2_1.default.secret;
         passport.use(new GoogleStrategy({
             clientID: this.clientId,
             clientSecret: this.secretId,
-            callbackURL: "/auth/google/callback"
-        }, function (accessToken, refreshToken, profile, done) {
+            callbackURL: "/auth/google/callback",
+            //                profileFields: ['id', 'displayName', 'emails']
+        }, (accessToken, refreshToken, profile, done) => {
             console.log("inside new password google strategy");
-            process.nextTick(function () {
+            process.nextTick(() => {
                 // console.log("validating google profile:" + JSON.stringify(profile));
                 console.log("userId:" + profile.id);
                 console.log("displayName: " + profile.displayName);
@@ -31,6 +32,5 @@ var GooglePassport = /** @class */ (function () {
             done(null, user);
         });
     }
-    return GooglePassport;
-}());
-exports["default"] = GooglePassport;
+}
+exports.default = GooglePassport;
