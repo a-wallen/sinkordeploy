@@ -1,24 +1,25 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.DataAccess = void 0;
-const Mongoose = require("mongoose");
-const mongoose_1 = require("./configs/mongoose");
+var Mongoose = require("mongoose");
+var mongoose_1 = require("./configs/mongoose");
 // adding changes
-class DataAccess {
-    constructor() {
+var DataAccess = /** @class */ (function () {
+    function DataAccess() {
         DataAccess.connect();
     }
-    static connect() {
+    DataAccess.connect = function () {
         if (this.mongooseInstance)
             return this.mongooseInstance;
         this.mongooseConnection = Mongoose.connection;
-        this.mongooseConnection.on("open", () => {
+        this.mongooseConnection.on("open", function () {
             console.log("Connected to mongodb.");
         });
         this.mongooseInstance = Mongoose.connect(this.DB_CONNECTION_STRING);
         return this.mongooseInstance;
-    }
-}
+    };
+    DataAccess.DB_CONNECTION_STRING = mongoose_1["default"].host;
+    return DataAccess;
+}());
 exports.DataAccess = DataAccess;
-DataAccess.DB_CONNECTION_STRING = mongoose_1.default.host;
 DataAccess.connect();
