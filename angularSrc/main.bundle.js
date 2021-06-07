@@ -70,7 +70,7 @@ var AppComponent = (function () {
     return AppComponent;
     var _a;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/app.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/app.component.js.map
 
 /***/ }),
 
@@ -159,7 +159,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/app.module.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/app.module.js.map
 
 /***/ }),
 
@@ -188,7 +188,7 @@ var routes = [
     { path: "users/:userId", component: __WEBPACK_IMPORTED_MODULE_3__user_detail_user_detail_component__["a" /* UserDetailComponent */] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(routes);
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/app.routing.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/app.routing.js.map
 
 /***/ }),
 
@@ -233,14 +233,14 @@ var CommentService = (function () {
     return CommentService;
     var _a;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/comment.service.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/comment.service.js.map
 
 /***/ }),
 
 /***/ "./src/app/comment1/comment1.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-2 px-4\">\r\n    <img height=\"65\" src=\"{{avatar_url}}\"/>\r\n  </div>\r\n  <div class=\"col-md-10 px-5\">\r\n    <h4>\r\n      <strong routerLink=\"../../../users/{{userId}}\">{{userName}}</strong>\r\n    </h4> \r\n    <p>{{content}}</p>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-2 px-4\">\r\n    <img height=\"65\" src=\"{{avatar_url}}\"/>\r\n  </div>\r\n  <div class=\"col-md-10 px-2\">\r\n    <h4>\r\n      <strong routerLink=\"../../../users/{{userId}}\">{{userName}}</strong>\r\n    </h4> \r\n    <p>{{content}}</p>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -310,7 +310,7 @@ var Comment1Component = (function () {
     return Comment1Component;
     var _a, _b;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/comment1.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/comment1.component.js.map
 
 /***/ }),
 
@@ -324,7 +324,7 @@ module.exports = ""
 /***/ "./src/app/feed/feed.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10\">\r\n      <!-- <app-meme *ngFor=\"let item of memes\" [memeModel]=\"meme\"></app-meme> -->\r\n      <!-- \r\n      <app-meme memeId=\"4000\" [routerLink]=\"['/meme','4000']\"></app-meme> -->\r\n\r\n      <div *ngFor=\"let memeId of memeIds\">\r\n        <app-meme-list-item memeId=\"{{ memeId }}\"></app-meme-list-item>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <div class=\"panel panel-default\">\r\n        <h4 class=\"text-muted\">this is where ads live</h4>\r\n        <img\r\n          src=\"https://imagizer.imageshack.com/v2/172x835q90/923/qUAmxP.png\"\r\n        />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\r\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\r\n<script src=\"/script.js\"></script>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-10\">\r\n      \r\n      <div *ngFor=\"let memeId of memeIds\">\r\n        <app-meme-list-item memeId=\"{{memeId}}\"></app-meme-list-item>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"col-md-2\">\r\n      <div class=\"panel panel-default\">\r\n        <h4 class=\"text-muted\">this is where ads live</h4>\r\n        <img\r\n          src=\"https://imagizer.imageshack.com/v2/172x835q90/923/qUAmxP.png\"\r\n        />\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\r\n<script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js\"></script>\r\n<script src=\"/script.js\"></script>\r\n"
 
 /***/ }),
 
@@ -387,7 +387,7 @@ var FeedComponent = (function () {
     return FeedComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/feed.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/feed.component.js.map
 
 /***/ }),
 
@@ -435,7 +435,7 @@ var LoginComponent = (function () {
     ], LoginComponent);
     return LoginComponent;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/login.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/login.component.js.map
 
 /***/ }),
 
@@ -449,7 +449,7 @@ module.exports = ""
 /***/ "./src/app/meme-list-item/meme-list-item.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"row p-3\">\r\n    <div class=\"col-md-6\">\r\n      <!-- [routerLink]=\"['../memes/', {{memeId}}]\" -->\r\n      <img\r\n        \r\n        routerLink=\"../../../memes/{{memeId}}\"\r\n        width=\"450\"\r\n        src=\"{{imageUrl}}\"\r\n      />\r\n    </div>\r\n    <div class=\"col-md-5\">\r\n      <!-- <div class=\"row\">\r\n        <div class=\"col-md-2 px-4\">\r\n          <img\r\n            height=\"65\"\r\n            src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4KP47dPsz_bI91LkZalV1aMQf4720tshqOP92l1HgIDUp2d6j9f5rvOUi9TSGIXSoPnM&usqp=CAU\"\r\n          />\r\n        </div>\r\n        <div class=\"col-md-10 px-5\">\r\n          <h4>\r\n            <strong>{{userName}}</strong>\r\n          </h4>\r\n          <p>Dis me LMAO</p>\r\n        </div>\r\n      </div> -->\r\n      <div *ngFor=\"let commentId of commentIds\">\r\n        <feed-comment commentId=\"{{commentId}}\"></feed-comment>\r\n      </div>\r\n      <!-- <div class=\"row\">\r\n        <div class=\"col-md-2 px-4\">\r\n          <img\r\n            class=\"justify-right\"\r\n            height=\"65\"\r\n            src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvbLYColuAg_XtboZLoetQitFYt0pboFbc8d2T4KzblsH8_HaZvfdkwT-tGOCHrAo-GeQ&usqp=CAU\"\r\n          />\r\n        </div>\r\n        <div class=\"col-md-10 px-5\">\r\n          <label>joe_bob_fake</label>\r\n          <p>wow I can really relate</p>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-2 px-4\">\r\n          <img\r\n            height=\"65\"\r\n            src=\"https://www.minnesotangos.org/sites/default/files/Allie%20Baker%20Round_1.png\"\r\n          />\r\n        </div>\r\n        <div class=\"col-md-10 px-5\">\r\n          <label>another_loser</label>\r\n          <p>BURN THE HOUSE DOWN</p>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-2 px-4\">\r\n          <img\r\n            height=\"65\"\r\n            src=\"https://image.flaticon.com/icons/png/512/61/61205.png\"\r\n          />\r\n        </div>\r\n        <div class=\"col-md-10 px-5\">\r\n          <label>who_am_i</label>\r\n          <input\r\n            type=\"text\"\r\n            class=\"form-control\"\r\n            placeholder=\"Comment\"\r\n            id=\"usr\"\r\n          />\r\n        </div>\r\n      </div> -->\r\n    </div>\r\n    <div class=\"col-md-1\">\r\n      <!-- Buttons - upvote/downvote/comment -->\r\n    <div class=\"col-md-1\" id=\"buttons-col\">\r\n      <div id=\"upvote-button\" class=\"row\">\r\n        <input \r\n        type=\"image\" \r\n        src=\"https://i.ibb.co/1f0Vpm2/arrow-up.png\"\r\n        height=\"50\"\r\n        class=\"button\"\r\n        (click)=\"upvoteMethod()\"/>\r\n      </div>\r\n      <div id=\"downvote-button\" class=\"row\">\r\n        <input \r\n        type=\"image\" \r\n        src=\"https://i.ibb.co/xLN283n/arrow-down.png\"\r\n        height=\"50\"\r\n        class=\"button\"\r\n        (click)=\"downvoteMethod()\"/>\r\n      </div>\r\n      <div id=\"comment-button\" class=\"row\">\r\n        <input \r\n        type=\"image\" \r\n        src=\"https://i.ibb.co/qp19KYP/comment-button.png\"\r\n        height=\"50\"\r\n        class=\"button\"\r\n        (click)=\"addCommentMethod()\"/>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"panel panel-default\">\r\n  <div class=\"row p-3\">\r\n    <div class=\"col-md-6\">\r\n\r\n      <img\r\n        class=\"meme-image\"\r\n        routerLink=\"../../../memes/{{memeId}}\"\r\n        width=\"450\"\r\n        src=\"{{imageUrl}}\"\r\n      />\r\n    </div>\r\n    <div class=\"col-md-5\">\r\n\r\n      <div *ngFor=\"let commentId of commentIds\">\r\n        <feed-comment commentId=\"{{commentId}}\"></feed-comment>\r\n        <hr>\r\n      </div>\r\n\r\n    </div>\r\n    <div class=\"col-md-1\">\r\n      <!-- Buttons - upvote/downvote/comment -->\r\n    <div class=\"col-md-1\" id=\"buttons-col\">\r\n      <div id=\"upvote-button\" class=\"row\">\r\n        <button type=\"button\" class=\"button-round\" aria-label=\"upvote\" (click)=\"upvoteMethod()\">\r\n          <span class=\"glyphicon glyphicon-circle-arrow-up\" aria-hidden=\"true\"></span>\r\n        </button>\r\n      </div>\r\n      \r\n      <div id=\"downvote-button\" class=\"row\">\r\n        <button type=\"button\" class=\"button-round\" aria-label=\"downvote\" (click)=\"downvoteMethod()\">\r\n          <span class=\"glyphicon glyphicon-circle-arrow-down\" aria-hidden=\"true\"></span>\r\n        </button>\r\n      </div>\r\n\r\n      <div id=\"comment-button\" class=\"row\">\r\n        <button type=\"button\" class=\"button-round\" aria-label=\"comment\" (click)=\"addCommentMethod()\">\r\n          <span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -526,7 +526,7 @@ var MemeListItemComponent = (function () {
     return MemeListItemComponent;
     var _a, _b, _c, _d, _e;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/meme-list-item.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/meme-list-item.component.js.map
 
 /***/ }),
 
@@ -600,7 +600,7 @@ var MemeService = (function () {
     return MemeService;
     var _a;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/meme.service.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/meme.service.js.map
 
 /***/ }),
 
@@ -614,7 +614,7 @@ module.exports = ".test {\r\n  height: 200px;\r\n  width: 200px;\r\n}\r\n.button
 /***/ "./src/app/meme/meme.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"header\"></div>\r\n  <div class=\"body\">\r\n    <div class=\"sidebar\">\r\n      <div class=\"row\">\r\n        <div class=\"col\">\r\n          <div class=\"row\">\r\n            <div class=\"padding\"></div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <!-- Image/Meme-->\r\n            <!-- <img\r\n              src=\"https://cms.qz.com/wp-content/uploads/2018/07/meme-featured.jpg?quality=75&strip=all&w=900&h=900&crop=1\"\r\n              class=\"meme-image\"\r\n            /> -->\r\n            <img src=\"{{ imageUrl }}\" class=\"meme-image\" />\r\n            \r\n          </div>\r\n          <div class=\"row\">\r\n            <label style=\"font-size: 200%\">Caption: <var>{{ caption }}</var></label>\r\n            <!-- <label style=\"font-size: 200%\">THIS IS THE CAPTION SO FUNNY</label> -->\r\n          </div>\r\n          <div class=\"padding\"></div>\r\n          <!-- Upvote and Downvote button-->\r\n          <div class=\"row-md-2\">\r\n            <div class=\"col-md-1\">\r\n              <input\r\n                type=\"image\"\r\n                src=\"https://i.ibb.co/1f0Vpm2/arrow-up.png\"\r\n                height=\"50\"\r\n                class=\"button\"\r\n                (click)=\"upvoteMethod()\"\r\n              />\r\n            </div>\r\n            <div class=\"col-md-1\">\r\n              <input\r\n                type=\"image\"\r\n                src=\"https://i.ibb.co/xLN283n/arrow-down.png\"\r\n                height=\"50\"\r\n                class=\"button\"\r\n                (click)=\"downvoteMethod()\"\r\n              />\r\n            </div>\r\n            <div class=\"col-md-2\">\r\n              <!-- Report button-->\r\n              <input\r\n                type=\"image\"\r\n                src=\"https://www.rawshorts.com/freeicons/wp-content/uploads/2017/01/red_webpict50_1484337222-1.png\"\r\n                class=\"reportButton\"\r\n                (click)=\"reportMethod()\"\r\n              />\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <p><br />Votes: {{ totalVotes }}</p>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"content\">\r\n      <label style=\"font-size: 200%\">Comments</label>\r\n      <div *ngFor=\"let commentId of commentIds\">\r\n        <feed-comment commentId=\"{{commentId}}\"></feed-comment>\r\n      </div>\r\n      <!-- TODO add loop for comments -->\r\n      <!-- <app-comment1 memeId=\"4000\"></app-comment1> -->\r\n      <!-- <p>{{comments[0].content}}</p> -->\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container-custom\">\r\n  <div class=\"header\"></div>\r\n  <div class=\"body\">\r\n\r\n\r\n    <div class=\"sidebar\">\r\n      <div class=\"row\">\r\n        <div class=\"col\">\r\n          <div class=\"row\">\r\n            <div class=\"padding\"></div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <!-- Image/Meme-->\r\n            <img src=\"{{ imageUrl }}\" class=\"meme-image-detail\" />\r\n            \r\n          </div>\r\n          <div class=\"row\">\r\n            <label style=\"font-size: 200%\">Caption: <var>{{ caption }}</var></label>\r\n          </div>\r\n          <div class=\"padding\"></div>\r\n          <!-- Upvote and Downvote button-->\r\n          <div class=\"row-md-2\">\r\n            <table class=\"table table-responsive\">\r\n              <tbody>\r\n\r\n                <tr>\r\n                  <td>\r\n                    <button type=\"button\" class=\"button-round\" aria-label=\"upvote\" (click)=\"upvoteMethod()\">\r\n                    <span class=\"glyphicon glyphicon-circle-arrow-up\" aria-hidden=\"true\"></span>\r\n                    </button>\r\n                  </td>\r\n                  <td>\r\n                    <button type=\"button\" class=\"button-round\" aria-label=\"downvote\" (click)=\"downvoteMethod()\">\r\n                      <span class=\"glyphicon glyphicon-circle-arrow-down\" aria-hidden=\"true\"></span>\r\n                    </button>\r\n                  </td>\r\n                  <td>\r\n                    <!-- Report button-->\r\n                    <button type=\"button\" class=\"button-round\" aria-label=\"report\" (click)=\"reportMethod()\">\r\n                      <span class=\"glyphicon glyphicon-flag\" aria-hidden=\"true\"></span>\r\n                    </button>\r\n                  </td>\r\n                  <td>\r\n                    <p>Votes: {{ totalVotes }}</p>\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n          \r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"content\">\r\n      <label style=\"font-size: 200%\">Comments</label>\r\n\r\n      <!-- TODO add loop for comments -->\r\n      <div *ngFor=\"let commentId of commentIds\">\r\n        <feed-comment commentId=\"{{commentId}}\"></feed-comment>\r\n        <hr>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"row-custom\">\r\n    <div class=\"col-10\">\r\n      <br/>\r\n      <div class=\"form-group\">\r\n        <input type=\"text\" class=\"form-control\" placeholder=\"Write a Comment\">\r\n      </div>\r\n    </div>\r\n    <div class=\"col-2\">\r\n      <div id=\"comment-button-detail\">\r\n        <button type=\"button\" class=\"button-round pull-right\" aria-label=\"comment\" (click)=\"addCommentMethod()\">\r\n          <span class=\"glyphicon glyphicon-comment\" aria-hidden=\"true\"></span>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -713,7 +713,7 @@ var MemeComponent = (function () {
     return MemeComponent;
     var _a, _b, _c, _d, _e;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/meme.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/meme.component.js.map
 
 /***/ }),
 
@@ -776,7 +776,7 @@ var UserDetailComponent = (function () {
     return UserDetailComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/user-detail.component.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/user-detail.component.js.map
 
 /***/ }),
 
@@ -822,7 +822,7 @@ var UserService = (function () {
     var _a;
 }());
 //do I need to add routes to the sso stuff here?
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/user.service.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/user.service.js.map
 
 /***/ }),
 
@@ -838,7 +838,7 @@ var UserService = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/environment.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/environment.js.map
 
 /***/ }),
 
@@ -861,7 +861,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_28" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/main.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/main.js.map
 
 /***/ }),
 
@@ -917,7 +917,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* pl
 
 
 
-//# sourceMappingURL=C:/Users/Saif/Documents/GitHub/sinkorswim/angular/src/polyfills.js.map
+//# sourceMappingURL=C:/Users/laura/Documents/GitHub/sinkorswim/angular/src/polyfills.js.map
 
 /***/ }),
 
