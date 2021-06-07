@@ -1,10 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.CommentModel = void 0;
-const Mongoose = require("mongoose");
-const DataAccess_1 = require("./../DataAccess");
-let mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
-let mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
+var Mongoose = require("mongoose");
+var DataAccess_1 = require("./../DataAccess");
+var mongooseConnection = DataAccess_1.DataAccess.mongooseConnection;
+var mongooseObj = DataAccess_1.DataAccess.mongooseInstance;
 /*
 Comments model
 CRUD
@@ -13,12 +13,12 @@ read: view a comment
 update: like a comment, edit a comment
 delete: delete a comment
 */
-class CommentModel {
-    constructor() {
+var CommentModel = /** @class */ (function () {
+    function CommentModel() {
         this.createSchema();
         this.createModel();
     }
-    createSchema() {
+    CommentModel.prototype.createSchema = function () {
         this.schema = new Mongoose.Schema({
             commentId: { type: String, required: true, index: { unique: true } },
             postId: { type: String, required: true },
@@ -27,48 +27,44 @@ class CommentModel {
             timestamp: { type: String, required: true },
             likes: { type: Number }
         }, { collection: 'comments' });
-    }
-    createModel() {
+    };
+    CommentModel.prototype.createModel = function () {
         this.model = mongooseConnection.model("Comments", this.schema);
-    }
-    createComment(response, commentObject) {
+    };
+    CommentModel.prototype.createComment = function (response, commentObject) {
         this.model.insertMany(commentObject)
-            .then((result) => {
+            .then(function (result) {
             response.json(result);
-        })
-            .catch((err) => {
+        })["catch"](function (err) {
             response.json(err);
         });
-    }
-    retrieveComment(response, filter) {
+    };
+    CommentModel.prototype.retrieveComment = function (response, filter) {
         this.model.findOne(filter)
-            .then((result) => { response.json(result); })
-            .catch((err) => { response.json(err); });
-    }
+            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
+    };
     // view a comment 
-    retrieveComments(response, filterObj) {
+    CommentModel.prototype.retrieveComments = function (response, filterObj) {
         this.model.find(filterObj)
-            .then((result) => { response.json(result); })
-            .catch((err) => { response.json(err); });
-    }
-    updateComment(response, commentObject) {
+            .then(function (result) { response.json(result); })["catch"](function (err) { response.json(err); });
+    };
+    CommentModel.prototype.updateComment = function (response, commentObject) {
         this.model.replaceOne({ commentId: commentObject["commentId"] }, commentObject)
-            .then((result) => {
+            .then(function (result) {
             response.json(result);
-        })
-            .catch((err) => {
+        })["catch"](function (err) {
             response.json(err);
         });
-    }
+    };
     // delete a comment 
-    deleteComment(response, commentObject) {
+    CommentModel.prototype.deleteComment = function (response, commentObject) {
         this.model.deleteMany({ commentId: commentObject["commentId"] })
-            .then((result) => {
+            .then(function (result) {
             response.json(result);
-        })
-            .catch((err) => {
+        })["catch"](function (err) {
             response.json(err);
         });
-    }
-}
+    };
+    return CommentModel;
+}());
 exports.CommentModel = CommentModel;

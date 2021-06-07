@@ -115,9 +115,7 @@ class App {
           "successfully authenticated user and returned to callback page."
         );
         console.log("redirecting to meme page");
-        res.redirect(
-          "http://localhost:4200/#/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"
-        ); // ----------------------------------------------------------change this
+        res.redirect("/#/memes/day/2021-05-02T23%3A03%3A18.254%2B00%3A00"); // ----------------------------------------------------------change this
       }
     );
 
