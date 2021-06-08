@@ -50,17 +50,11 @@ class App {
         if (req.isAuthenticated()) {
             console.log("User name :" + req.user.displayName);
             res.json(req.user.displayName);
-            console.log(res);
-            console.log(JSON.stringify(res));
-            console.log("\n");
-            console.log("\n");
-            console.log("\n");
             return;
         }
         else {
             //return not signed in
-            console.log("is this the fuck up\n");
-            return res.json("Not signed in");
+            res.json(null);
         }
     }
     // Configure API endpoints.
